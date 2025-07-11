@@ -15,33 +15,31 @@ namespace Theme02_Task01
 {
     public partial class MainWindow : Window
     {
-        private string currentFilePath = string.Empty;
+        private string currentFilePath = null;
+
         public MainWindow()
         {
             InitializeComponent();
         }
+
         // Обработчик кнопки "Открыть"
         private void OpenButton_Click(object sender, RoutedEventArgs e)
         {
-            var openFileDialog = new OpenFileDialog
-            {
-                Filter = "Текстовые файлы (*.txt)|*.txt|Все файлы (*.*)|*.*",
-                Title = "Открыть файл"
-            };
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "Текстовые файлы (*.txt)|*.txt|Все файлы (*.*)|*.*";
 
             if (openFileDialog.ShowDialog() == true)
             {
                 try
                 {
-                    // Чтение содержимого файла
+                    // Чтение содержимого файла и отображение в TextBox
                     TextEditor.Text = File.ReadAllText(openFileDialog.FileName);
                     currentFilePath = openFileDialog.FileName;
                     StatusText.Text = $"Открыт файл: {currentFilePath}";
                 }
                 catch (IOException ex)
                 {
-                    MessageBox.Show($"Ошибка при открытии файла: {ex.Message}", "Ошибка",
-                        MessageBoxButton.OK, MessageBoxImage.Error);
+                    MessageBox.Show($"Ошибка при открытии файла: {ex.Message}", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
         }
@@ -49,12 +47,8 @@ namespace Theme02_Task01
         // Обработчик кнопки "Сохранить как"
         private void SaveAsButton_Click(object sender, RoutedEventArgs e)
         {
-            var saveFileDialog = new SaveFileDialog
-            {
-                Filter = "Текстовые файлы (*.txt)|*.txt|Все файлы (*.*)|*.*",
-                Title = "Сохранить файл",
-                DefaultExt = ".txt"
-            };
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter = "Текстовые файлы (*.txt)|*.txt|Все файлы (*.*)|*.*";
 
             if (saveFileDialog.ShowDialog() == true)
             {
@@ -67,8 +61,7 @@ namespace Theme02_Task01
                 }
                 catch (IOException ex)
                 {
-                    MessageBox.Show($"Ошибка при сохранении файла: {ex.Message}", "Ошибка",
-                        MessageBoxButton.OK, MessageBoxImage.Error);
+                    MessageBox.Show($"Ошибка при сохранении файла: {ex.Message}", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
         }
@@ -76,27 +69,23 @@ namespace Theme02_Task01
         // Обработчик кнопки "О программе"
         private void AboutButton_Click(object sender, RoutedEventArgs e)
         {
-            var aboutWindow = new AboutWindow();
+            AboutWindow aboutWindow = new AboutWindow();
             aboutWindow.Owner = this;
             aboutWindow.ShowDialog();
         }
 
-        // Обработчик события закрытия окна (подтверждение выхода)
+        // Обработчик события закрытия окна - запрос подтверждения
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            if (!string.IsNullOrWhiteSpace(TextEditor.Text))
-            {
-                var result = MessageBox.Show("Вы хотите сохранить изменения перед выходом?", "Подтверждение",
-                    MessageBoxButton.YesNoCancel, MessageBoxImage.Question);
+            MessageBoxResult result = MessageBox.Show(
+                "Вы уверены, что хотите выйти? Все несохранённые изменения будут потеряны.",
+                "Подтверждение выхода",
+                MessageBoxButton.YesNo,
+                MessageBoxImage.Question);
 
-                if (result == MessageBoxResult.Yes)
-                {
-                    SaveAsButton_Click(sender, null);
-                }
-                else if (result == MessageBoxResult.Cancel)
-                {
-                    e.Cancel = true; // Отмена закрытия окна
-                }
+            if (result == MessageBoxResult.No)
+            {
+                e.Cancel = true;
             }
         }
     }
