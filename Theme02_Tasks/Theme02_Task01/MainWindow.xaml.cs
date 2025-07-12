@@ -15,7 +15,7 @@ namespace Theme02_Task01
 {
     public partial class MainWindow : Window
     {
-        private string currentFilePath = null;
+        private string? currentFilePath = null;
 
         public MainWindow()
         {
@@ -40,6 +40,7 @@ namespace Theme02_Task01
                 catch (IOException ex)
                 {
                     MessageBox.Show($"Ошибка при открытии файла: {ex.Message}", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                    StatusText.Text = "Ошибка";
                 }
             }
         }
@@ -62,6 +63,7 @@ namespace Theme02_Task01
                 catch (IOException ex)
                 {
                     MessageBox.Show($"Ошибка при сохранении файла: {ex.Message}", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                    StatusText.Text = "Ошибка";
                 }
             }
         }
@@ -79,14 +81,12 @@ namespace Theme02_Task01
         {
             MessageBoxResult result = MessageBox.Show(
                 "Вы уверены, что хотите выйти? Все несохранённые изменения будут потеряны.",
-                "Подтверждение выхода",
+                "Подтверждение выхода.",
                 MessageBoxButton.YesNo,
                 MessageBoxImage.Question);
 
             if (result == MessageBoxResult.No)
-            {
                 e.Cancel = true;
-            }
         }
     }
 }
