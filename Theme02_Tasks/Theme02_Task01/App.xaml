@@ -4,6 +4,24 @@
              xmlns:local="clr-namespace:Theme02_Task01"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <!-- Решил вынести стили для кнопок и текстового поля отдельно, по аналогии с css.
+    Заодно решил слегка поиграть с оформлением -->
+            <!-- Стиль для всех кнопок в окне -->
+            <Style TargetType="Button" x:Key="ButtonStyle">
+                <Setter Property="FontFamily" Value="Calibri"/>
+                <Setter Property="FontSize" Value="14"/>
+                <Setter Property="Margin" Value="1"/>
+                <Setter Property="Padding" Value="5,5"/>
+                <Setter Property="Foreground" Value="Black"/>
+                <Setter Property="BorderThickness" Value="1"/>
+                <Setter Property="BorderBrush" Value="Black"/>
+            </Style>
+            <!-- Стиль для TextBox -->
+            <Style TargetType="TextBlock" x:Key="TextBoxStyle">
+                <Setter Property="FontFamily" Value="Times New Roman"/>
+                <Setter Property="FontSize" Value="14"/>
+                <Setter Property="Margin" Value="1"/>
+                <Setter Property="Padding" Value="5"/>
+            </Style>
     </Application.Resources>
 </Application>

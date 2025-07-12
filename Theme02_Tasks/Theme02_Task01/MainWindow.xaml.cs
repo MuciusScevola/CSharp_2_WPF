@@ -72,6 +72,9 @@ namespace Theme02_Task01
         private void AboutButton_Click(object sender, RoutedEventArgs e)
         {
             AboutWindow aboutWindow = new AboutWindow();
+
+            aboutWindow.Resources.MergedDictionaries.Add(this.Resources);
+
             aboutWindow.Owner = this;
             aboutWindow.ShowDialog();
         }

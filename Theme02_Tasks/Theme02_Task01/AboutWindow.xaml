@@ -39,7 +39,8 @@
         </StackPanel>
         <Button Grid.Row="2"
                 Content="Закрыть"
-                Width="100"
+                Style="{StaticResource ButtonStyle}"
+                Background="#FFAFBFFF"
                 HorizontalAlignment="Center"
                 Click="CloseButton_Click"/>
     </Grid>
