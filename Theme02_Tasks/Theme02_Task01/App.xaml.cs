@@ -6,6 +6,7 @@ namespace Theme02_Task01
 {
    public partial class App : Application
     {
+
     }
 
 }

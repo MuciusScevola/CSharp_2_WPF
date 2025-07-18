@@ -4,8 +4,7 @@
              xmlns:local="clr-namespace:Theme02_Task01"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-        <!-- Решил вынести стили для кнопок и текстового поля отдельно, по аналогии с css.
-    Заодно решил слегка поиграть с оформлением -->
+        <!-- Решил вынести стили для кнопок и текстового поля отдельно, по аналогии с css. -->
             <!-- Стиль для всех кнопок в окне -->
             <Style TargetType="Button" x:Key="ButtonStyle">
                 <Setter Property="FontFamily" Value="Calibri"/>

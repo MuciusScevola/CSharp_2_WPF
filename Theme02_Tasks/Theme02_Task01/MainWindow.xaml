@@ -9,45 +9,44 @@
         Height="600" Width="800"
         MinHeight="300" MinWidth="400"
         Closing="Window_Closing">
-    <DockPanel LastChildFill="False">
-        <!-- Панель инструментов-->
-        <ToolBar DockPanel.Dock="Top" Background="Bisque">
-            <Button Content="Открыть"
+        <DockPanel>
+            <!-- Панель инструментов-->
+            <ToolBar DockPanel.Dock="Top" Background="Bisque">
+                <Button Content="Открыть"
                     Style="{StaticResource ButtonStyle}"
                     Background="LightPink"
                     Click="OpenButton_Click"/>
 
-            <Button Content="Сохранить как"
+                <Button Content="Сохранить как"
                     Style="{StaticResource ButtonStyle}"
                     Background="LightYellow"
                     Click="SaveAsButton_Click"/>
 
-            <Separator/>
+                <Separator Width="2"/>
 
-            <Button Content="О программе"
+                <Button Content="О программе"
                     Style="{StaticResource ButtonStyle}"
                     Background="LightGreen"
                     Click="AboutButton_Click"/>
-        </ToolBar>
-
-        <!-- Область редактирования -->
-            <TextBox x:Name="TextEditor"
-                     TextWrapping="Wrap"
-                     AcceptsReturn="True"
-                     AcceptsTab="True"
-                     VerticalScrollBarVisibility="Visible"
-                     HorizontalScrollBarVisibility="Disabled"/>
+            </ToolBar>
 
             <!-- Строка состояния -->
             <StatusBar DockPanel.Dock="Bottom" Background="AliceBlue">
-                <StatusBarItem>
-                    <TextBlock x:Name="StatusText"
-                               Text="Готов к началу работы"
-                               FontFamily="Courier New"
-                               FontSize="12"
-                               Margin="1"
-                               Padding="2"/>
-                </StatusBarItem>
+                <TextBlock x:Name="StatusText"
+                       Text="Готов к началу работы"
+                       FontFamily="Courier New"
+                       FontSize="12"
+                       Margin="1"
+                       Padding="2"/>
             </StatusBar>
-    </DockPanel>
+			
+                <TextBox x:Name="TextEditorBox"
+						 Style="{StaticResource TextBoxStyle}"
+                         AcceptsReturn="True"
+                         AcceptsTab="True"
+                         TextWrapping="Wrap"
+                         Padding="5"
+                         VerticalScrollBarVisibility="Visible"
+                         HorizontalScrollBarVisibility="Disabled"/>
+        </DockPanel>
 </Window>

@@ -10,38 +10,48 @@
         Width="400"
         WindowStartupLocation="CenterOwner"
         ResizeMode="NoResize">
-    <Grid Margin="10">
+    <Grid Margin="5">
         <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        <Image Grid.Row="0"
-               Source="/author.jpg"
-               Width="100"
-               Height="100"
-               HorizontalAlignment="Center"
-               Margin="0,0,0,10"/>
-        <StackPanel Grid.Row="1" VerticalAlignment="Center">
-            <TextBlock Text="Текстовый редактор"
-                FontSize="16"
-                FontWeight="Bold"
-                HorizontalAlignment="Center"
-                Margin="0,0,0,10"/>
-            <TextBlock Text="Версия 1.0"
+        
+            <TextBlock Grid.Row="0"
+                       Text="Простой текстовый редактор"
+                       FontSize="16"
+                       FontWeight="Bold"
                        HorizontalAlignment="Center"
                        Margin="0,0,0,10"/>
-            <TextBlock Text="Автор: [Ваше имя]"
-                       HorizontalAlignment="Center"
-                       Margin="0,0,0,10"/>
-            <TextBlock Text="Дата создания: [Дата]"
-                       HorizontalAlignment="Center"/>
-        </StackPanel>
-        <Button Grid.Row="2"
-                Content="Закрыть"
-                Style="{StaticResource ButtonStyle}"
-                Background="#FFAFBFFF"
-                HorizontalAlignment="Center"
-                Click="CloseButton_Click"/>
+
+            <Image Grid.Row="1"
+                   Source="/img/actor.jpg"
+                   Height="100"
+                   Width="100"
+                   HorizontalAlignment="Center"
+                   Margin="0,0,0,5"/>
+
+            <StackPanel Grid.Row="2" VerticalAlignment="Center" Margin="0,0,0,5">
+                <TextBlock Text="Автор: Клим Климентьевич Восточнолесов"
+                           FontSize="13"
+                           HorizontalAlignment="Center"
+                           Margin="0"/>
+                <TextBlock Text="Версия 1.0"
+                           FontSize="13"
+                           HorizontalAlignment="Center"
+                           Margin="0"/>
+                <TextBlock Text="Дата создания: 2025.07.15"
+                           FontSize="13"
+                           HorizontalAlignment="Center"/>
+            </StackPanel>
+        
+        <Button Grid.Row="3"
+                    Content="Закрыть"
+                    Style="{StaticResource ButtonStyle}"
+                    Background="#FFAFBFFF"
+                    HorizontalAlignment="Center"
+                    Margin="0,10,0,10"
+                    Click="CloseButton_Click"/>
     </Grid>
 </Window>

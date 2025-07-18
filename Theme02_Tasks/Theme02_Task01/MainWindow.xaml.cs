@@ -22,7 +22,7 @@ namespace Theme02_Task01
             InitializeComponent();
         }
 
-        // Обработчик кнопки "Открыть"
+        // Обработчик кнопки "Открыть".
         private void OpenButton_Click(object sender, RoutedEventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
@@ -32,8 +32,7 @@ namespace Theme02_Task01
             {
                 try
                 {
-                    // Чтение содержимого файла и отображение в TextBox
-                    TextEditor.Text = File.ReadAllText(openFileDialog.FileName);
+                    TextEditorBox.Text = File.ReadAllText(openFileDialog.FileName);
                     currentFilePath = openFileDialog.FileName;
                     StatusText.Text = $"Открыт файл: {currentFilePath}";
                 }
@@ -45,7 +44,7 @@ namespace Theme02_Task01
             }
         }
 
-        // Обработчик кнопки "Сохранить как"
+        // Обработчик кнопки "Сохранить как".
         private void SaveAsButton_Click(object sender, RoutedEventArgs e)
         {
             SaveFileDialog saveFileDialog = new SaveFileDialog();
@@ -55,8 +54,7 @@ namespace Theme02_Task01
             {
                 try
                 {
-                    // Сохранение текста в файл
-                    File.WriteAllText(saveFileDialog.FileName, TextEditor.Text);
+                    File.WriteAllText(saveFileDialog.FileName, TextEditorBox.Text);
                     currentFilePath = saveFileDialog.FileName;
                     StatusText.Text = $"Файл сохранён: {currentFilePath}";
                 }
@@ -68,10 +66,10 @@ namespace Theme02_Task01
             }
         }
 
-        // Обработчик кнопки "О программе"
+        // Обработчик кнопки "О программе".
         private void AboutButton_Click(object sender, RoutedEventArgs e)
         {
-            AboutWindow aboutWindow = new AboutWindow();
+            var aboutWindow = new AboutWindow();
 
             aboutWindow.Resources.MergedDictionaries.Add(this.Resources);
 
@@ -79,7 +77,7 @@ namespace Theme02_Task01
             aboutWindow.ShowDialog();
         }
 
-        // Обработчик события закрытия окна - запрос подтверждения
+        // Обработчик события закрытия окна - запрос подтверждения.
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
             MessageBoxResult result = MessageBox.Show(
