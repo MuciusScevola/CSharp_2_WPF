@@ -1,4 +1,5 @@
 ﻿using Microsoft.Win32;
+using System.Data;
 using System.IO;
 using System.Text;
 using System.Windows;
@@ -16,7 +17,6 @@ namespace Theme02_Task01
     public partial class MainWindow : Window
     {
         private string? currentFilePath = null;
-
         public MainWindow()
         {
             InitializeComponent();
@@ -82,18 +82,13 @@ namespace Theme02_Task01
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
             MessageBoxResult result = MessageBox.Show(
-                "Вы уверены, что хотите выйти? Все несохранённые изменения будут потеряны.",
-                "Подтверждение выхода.",
-                MessageBoxButton.YesNo,
-                MessageBoxImage.Question);
+            "Вы уверены, что хотите выйти? Все несохранённые изменения будут потеряны.",
+            "Подтверждение выхода.",
+            MessageBoxButton.YesNo,
+            MessageBoxImage.Question);
 
             if (result == MessageBoxResult.No)
                 e.Cancel = true;
-        }
-
-        private void TextEditorBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
         }
     }
 }
