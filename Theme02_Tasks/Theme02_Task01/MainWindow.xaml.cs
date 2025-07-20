@@ -26,7 +26,7 @@ namespace Theme02_Task01
         private void OpenButton_Click(object sender, RoutedEventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.Filter = "Текстовые файлы (*.txt)|*.txt|Все файлы (*.*)|*.*";
+            openFileDialog.Filter = "Текстовые файлы (*.txt)|*.txt";
 
             if (openFileDialog.ShowDialog() == true)
             {
@@ -48,7 +48,8 @@ namespace Theme02_Task01
         private void SaveAsButton_Click(object sender, RoutedEventArgs e)
         {
             SaveFileDialog saveFileDialog = new SaveFileDialog();
-            saveFileDialog.Filter = "Текстовые файлы (*.txt)|*.txt|Все файлы (*.*)|*.*";
+            saveFileDialog.Filter = "Текстовые файлы (*.txt)|*.txt";
+            saveFileDialog.DefaultExt = ".txt";
 
             if (saveFileDialog.ShowDialog() == true)
             {
@@ -58,10 +59,10 @@ namespace Theme02_Task01
                     currentFilePath = saveFileDialog.FileName;
                     StatusText.Text = $"Файл сохранён: {currentFilePath}";
                 }
-                catch (IOException ex)
+                catch (Exception ex)
                 {
-                    MessageBox.Show($"Ошибка при сохранении файла: {ex.Message}", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
-                    StatusText.Text = "Ошибка";
+                    MessageBox.Show($"Непредвиденная ошибка: {ex.Message}", "Критическая ошибка",
+                          MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
         }
@@ -88,6 +89,11 @@ namespace Theme02_Task01
 
             if (result == MessageBoxResult.No)
                 e.Cancel = true;
+        }
+
+        private void TextEditorBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
         }
     }
 }
