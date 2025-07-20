@@ -5,8 +5,64 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Theme03_Task01"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
+        Title="Выбор курса" Height="400" Width="400">
+    <Grid Margin="5">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- Заголовок. -->
+        <TextBlock Grid.Row="0"
+               Text="Выбор учебного курса"
+               FontSize="15"
+               FontWeight="Bold"
+               Margin="0,0,0,10"/>
+
+        <!-- Имя студента. -->
+        <TextBlock Grid.Row="1"
+               Text="Имя студента:"/>
+        <TextBox x:Name="StudentName_TextBox"
+                 Grid.Row="2"
+                 HorizontalAlignment="Stretch"
+                 Margin="0,0,0,10"
+                 Width="Auto"/>
+
+        <!-- Факультет. -->
+        <TextBlock Grid.Row="3"
+               Text="Факультет:"/>
+        <ComboBox x:Name="Faculty_ComboBox"
+                  Grid.Row="4"
+                  HorizontalAlignment="Stretch"
+                  Width="Auto">
+            <ComboBoxItem>Информатика</ComboBoxItem>
+            <ComboBoxItem>Машиностроение</ComboBoxItem>
+            <ComboBoxItem>Биомедицина</ComboBoxItem>
+            <ComboBoxItem>Робототехника</ComboBoxItem>
+        </ComboBox>
+        
+        <!-- Форма обучения. -->
+        <TextBlock Grid.Row="5"
+                   Text="Форма обучения:"/>
+        <StackPanel Grid.Row="6"
+                    Orientation="Horizontal"
+                    Margin="0,0,0,10">
+            <RadioButton x:Name="FullTime_RadioButton"
+                         Content="Очно"
+                         IsChecked="True"
+                         Margin="0,0,10,0"/>
+            <RadioButton x:Name="PartTime_RadioButton"
+                         Content="Заочно"/>
+        </StackPanel>
+
+
 
     </Grid>
 </Window>
