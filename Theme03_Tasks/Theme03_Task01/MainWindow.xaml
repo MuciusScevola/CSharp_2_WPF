@@ -5,8 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Theme03_Task01"
         mc:Ignorable="d"
-        Title="Выбор курса" MinHeight="500" MinWidth="500" FontSize="13">
-    <Grid Margin="10" ShowGridLines="True">
+        Title="Выбор курса"
+        FontSize="13"
+        MinHeight="500"
+        MinWidth="500"
+        MaxHeight="900"
+        MaxWidth="900"
+        SizeToContent="Manual"
+        WindowStartupLocation="CenterScreen">
+    <Grid Margin="10" ShowGridLines="False">
         <Grid.RowDefinitions>
             <!-- #1 Заголовок. -->
             <RowDefinition Height="Auto"/>
@@ -53,7 +60,7 @@
                        VerticalAlignment="Center"
                        Margin="0,0,5,0"/>
                 <TextBox Grid.Column="1"
-                     x:Name="FirstNameTextBox"
+                     x:Name="FirstName_TextBox"
                      MinWidth="100"
                      Margin="0,0,10,0"/>
 
@@ -63,7 +70,7 @@
                        VerticalAlignment="Center"
                        Margin="0,0,5,0"/>
                 <TextBox Grid.Column="3"
-                     x:Name="StudentNameTextBox"
+                     x:Name="StudentName_TextBox"
                      MinWidth="100"/>
             </Grid>
         </StackPanel>
@@ -72,16 +79,28 @@
         <StackPanel Grid.Row="2" Margin="0,0,0,10">
             <TextBlock Text="Факультет:" Margin="0,0,0,5"/>
             <ComboBox x:Name="Faculty_ComboBox"
-                      HorizontalAlignment="Stretch"
-                      Margin="0">
+                      HorizontalAlignment="Stretch">
                 <ComboBoxItem>Факультет 1</ComboBoxItem>
                 <ComboBoxItem>Факультет 2</ComboBoxItem>
                 <ComboBoxItem>Факультет 3</ComboBoxItem>
             </ComboBox>
         </StackPanel>
 
-        <!-- Форма обучения. -->
+        <!-- Доступные курсы. -->
         <StackPanel Grid.Row="3" Margin="0,0,0,10">
+            <TextBlock Text="Доступные курсы:" Margin="0,0,0,5"/>
+            <ListBox x:Name="Courses_ListBox"
+                     SelectionMode="Multiple">
+                <ListBoxItem>Курс 1</ListBoxItem>
+                <ListBoxItem>Курс 2</ListBoxItem>
+                <ListBoxItem>Курс 3</ListBoxItem>
+                <ListBoxItem>Курс 4</ListBoxItem>
+                <ListBoxItem>Курс 5</ListBoxItem>
+            </ListBox>
+        </StackPanel>
+        
+        <!-- Форма обучения. -->
+        <StackPanel Grid.Row="4" Margin="0,0,0,10">
             <TextBlock Text="Форма обучения:" Margin="0,0,0,5"/>
             <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
                 <RadioButton x:Name="FullTime_RadioButton"
@@ -92,18 +111,7 @@
                          Content="Заочно"/>
             </StackPanel>
         </StackPanel>
-
-        <!-- Доступные курсы. -->
-        <StackPanel Grid.Row="4" Margin="0,0,0,10">
-            <TextBlock Text="Доступные курсы:" Margin="0,0,0,5"/>
-            <ListBox x:Name="Courses_ListBox"
-                     SelectionMode="Multiple">
-                <ListBoxItem>Курс 1</ListBoxItem>
-                <ListBoxItem>Курс 2</ListBoxItem>
-                <ListBoxItem>Курс 3</ListBoxItem>
-            </ListBox>
-        </StackPanel>
-
+        
         <!-- Количество часов в неделю. -->
         <StackPanel Grid.Row="5" Margin="0,0,0,10">
             <Grid>
@@ -124,6 +132,8 @@
                     Minimum="1"
                     Maximum="40"
                     Value="5"
+                    TickFrequency="1"
+                    IsSnapToTickEnabled="True"
                     HorizontalAlignment="Stretch"
                     Margin="0"/>
         </StackPanel>
