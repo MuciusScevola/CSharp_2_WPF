@@ -7,11 +7,9 @@
         mc:Ignorable="d"
         Title="Выбор курса"
         FontSize="13"
-        MinHeight="500"
-        MinWidth="500"
-        MaxHeight="900"
-        MaxWidth="900"
-        SizeToContent="Manual"
+        Height="550"
+        Width="500"
+        ResizeMode="CanMinimize"
         WindowStartupLocation="CenterScreen">
     <Grid Margin="10" ShowGridLines="False">
         <Grid.RowDefinitions>

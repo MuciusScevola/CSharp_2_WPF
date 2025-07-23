@@ -19,7 +19,19 @@ namespace Theme03_Task01
             // Явное указание, что факультет не выбран при запуске.
             Faculty_ComboBox.SelectedIndex = -1;
         }
-
+        // Проверка выбора курсов.
+        private bool ValidateCoursesSelection()
+        {
+            if (Courses_ListBox.SelectedItems.Count == 0)
+            {
+                MessageBox.Show("Выберите как минимум один курс.",
+                              "Ошибка выбора",
+                              MessageBoxButton.OK,
+                              MessageBoxImage.Warning);
+                return false;
+            }
+            return true;
+        }
         private void RegisterButton_Click(object sender, RoutedEventArgs e)
         {
             // Проверка обязательных полей.
@@ -37,7 +49,7 @@ namespace Theme03_Task01
                 $"Студент: {studentName}\n" +
                 $"Факультет: {faculty}\n" +
                 $"Курсы: {selectedCourses}\n" + 
-                $"Количество часов: {hoursWeek}\n" +
+                $"Часов в неделю: {hoursWeek}\n" +
                 $"Форма обучения: {studyForm}",
                 "Регистрация завершена",
                 MessageBoxButton.OK,
@@ -65,6 +77,10 @@ namespace Theme03_Task01
                 ShowError("Выберите факультет.");
                 return false;
             }
+
+            // Проверка выбора курсов.
+            if (!ValidateCoursesSelection())
+                return false;
 
             // Проверка согласия.
             if (AgreementCheck.IsChecked != true)
