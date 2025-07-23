@@ -27,9 +27,7 @@
             <RowDefinition Height="Auto"/>
             <!-- #6 Согласие. -->
             <RowDefinition Height="Auto"/>
-            <!-- #7 Сепаратор. -->
-            <RowDefinition Height="*"/>
-            <!-- #8 Кнопка записи. -->
+            <!-- #7 Кнопка записи. -->
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
@@ -141,8 +139,6 @@
                   x:Name="AgreementCheck"
                   Content="Я согласен на обработку персональных данных."
                   Margin="0,10,0,10"/>
-
-        <Separator Grid.Row="10"/>
 
         <!-- Кнопка "Записаться". -->
         <Button Grid.Row="7"
