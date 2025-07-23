@@ -1,0 +1,57 @@
+﻿<Window x:Class="Theme02_Task01.AboutWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Theme02_Task01"
+        mc:Ignorable="d"
+        Title="О программе"
+        Height="300"
+        Width="400"
+        WindowStartupLocation="CenterOwner"
+        ResizeMode="NoResize">
+    <Grid Margin="5">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        
+            <TextBlock Grid.Row="0"
+                       Text="Простой текстовый редактор"
+                       FontSize="16"
+                       FontWeight="Bold"
+                       HorizontalAlignment="Center"
+                       Margin="0,0,0,10"/>
+
+            <Image Grid.Row="1"
+                   Source="/img/actor.jpg"
+                   Height="100"
+                   Width="100"
+                   HorizontalAlignment="Center"
+                   Margin="0,0,0,5"/>
+
+            <StackPanel Grid.Row="2" VerticalAlignment="Center" Margin="0,0,0,5">
+                <TextBlock Text="Автор: Клим Климентьевич Восточнолесов"
+                           FontSize="13"
+                           HorizontalAlignment="Center"
+                           Margin="0"/>
+                <TextBlock Text="Версия 1.0"
+                           FontSize="13"
+                           HorizontalAlignment="Center"
+                           Margin="0"/>
+                <TextBlock Text="Дата создания: 2025.07.15"
+                           FontSize="13"
+                           HorizontalAlignment="Center"/>
+            </StackPanel>
+        
+        <Button Grid.Row="3"
+                    Content="Закрыть"
+                    Style="{StaticResource ButtonStyle}"
+                    Background="#FFAFBFFF"
+                    HorizontalAlignment="Center"
+                    Margin="0,10,0,10"
+                    Click="CloseButton_Click"/>
+    </Grid>
+</Window>
