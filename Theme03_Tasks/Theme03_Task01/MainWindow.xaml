@@ -1,0 +1,154 @@
+﻿<Window x:Class="Theme03_Task01.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Theme03_Task01"
+        mc:Ignorable="d"
+        Title="Выбор курса"
+        FontSize="13"
+        Height="550"
+        Width="500"
+        ResizeMode="CanMinimize"
+        WindowStartupLocation="CenterScreen">
+    <Grid Margin="10" ShowGridLines="False">
+        <Grid.RowDefinitions>
+            <!-- #1 Заголовок. -->
+            <RowDefinition Height="Auto"/>
+            <!-- #1 Студент. -->
+            <RowDefinition Height="Auto"/>
+            <!-- #2 Факультет. -->
+            <RowDefinition Height="Auto"/>
+            <!-- #3 Форма обучения. -->
+            <RowDefinition Height="Auto"/>
+            <!-- #4 Доступные курсы. -->
+            <RowDefinition Height="Auto"/>
+            <!-- #5 Количество часов в неделю. -->
+            <RowDefinition Height="Auto"/>
+            <!-- #6 Согласие. -->
+            <RowDefinition Height="Auto"/>
+            <!-- #7 Кнопка записи. -->
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- Заголовок. -->
+        <TextBlock Grid.Row="0"
+                   Text="Выбор учебного курса"
+                   FontSize="15"
+                   FontWeight="Bold"
+                   HorizontalAlignment="Center"
+                   Margin="0,0,0,5"/>
+
+        <!-- Студент. -->
+        <StackPanel Grid.Row="1" Margin="0,0,0,5">
+            <TextBlock Text="Cтудент" Margin="0,0,0,5"/>
+            <Grid Margin="0,0,0,5">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="0.4*"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="0.6*"/>
+                </Grid.ColumnDefinitions>
+
+                <!-- Имя. -->
+                <TextBlock Grid.Column="0"
+                       Text="Имя:"
+                       VerticalAlignment="Center"
+                       Margin="0,0,5,0"/>
+                <TextBox Grid.Column="1"
+                     x:Name="FirstName_TextBox"
+                     MinWidth="100"
+                     Margin="0,0,10,0"/>
+
+                <!-- Фамилия. -->
+                <TextBlock Grid.Column="2"
+                       Text="Фамилия:"
+                       VerticalAlignment="Center"
+                       Margin="0,0,5,0"/>
+                <TextBox Grid.Column="3"
+                     x:Name="StudentName_TextBox"
+                     MinWidth="100"/>
+            </Grid>
+        </StackPanel>
+
+        <!-- Факультет. -->
+        <StackPanel Grid.Row="2" Margin="0,0,0,10">
+            <TextBlock Text="Факультет:" Margin="0,0,0,5"/>
+            <ComboBox x:Name="Faculty_ComboBox"
+                      HorizontalAlignment="Stretch">
+                <ComboBoxItem>Факультет 1</ComboBoxItem>
+                <ComboBoxItem>Факультет 2</ComboBoxItem>
+                <ComboBoxItem>Факультет 3</ComboBoxItem>
+            </ComboBox>
+        </StackPanel>
+
+        <!-- Доступные курсы. -->
+        <StackPanel Grid.Row="3" Margin="0,0,0,10">
+            <TextBlock Text="Доступные курсы:" Margin="0,0,0,5"/>
+            <ListBox x:Name="Courses_ListBox"
+                     SelectionMode="Multiple">
+                <ListBoxItem>Курс 1</ListBoxItem>
+                <ListBoxItem>Курс 2</ListBoxItem>
+                <ListBoxItem>Курс 3</ListBoxItem>
+                <ListBoxItem>Курс 4</ListBoxItem>
+                <ListBoxItem>Курс 5</ListBoxItem>
+            </ListBox>
+        </StackPanel>
+        
+        <!-- Форма обучения. -->
+        <StackPanel Grid.Row="4" Margin="0,0,0,10">
+            <TextBlock Text="Форма обучения:" Margin="0,0,0,5"/>
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
+                <RadioButton x:Name="FullTime_RadioButton"
+                         Content="Очно"
+                         IsChecked="True"
+                         Margin="0,0,5,0"/>
+                <RadioButton x:Name="PartTime_RadioButton"
+                         Content="Заочно"/>
+            </StackPanel>
+        </StackPanel>
+        
+        <!-- Количество часов в неделю. -->
+        <StackPanel Grid.Row="5" Margin="0,0,0,10">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Column="0"
+                           Text="Часов в неделю:"
+                           VerticalAlignment="Center"
+                           Margin="0,0,5,5"/>
+                <TextBlock Grid.Column="1"
+                           Text="{Binding ElementName=Hours_Slider, Path=Value, StringFormat={}{0} часов}"
+                           VerticalAlignment="Center"
+                           Margin="0,0,0,5"/>
+            </Grid>
+            <Slider x:Name="Hours_Slider"
+                    Minimum="1"
+                    Maximum="40"
+                    Value="5"
+                    TickFrequency="1"
+                    IsSnapToTickEnabled="True"
+                    HorizontalAlignment="Stretch"
+                    Margin="0"/>
+        </StackPanel>
+
+        <!-- Согласие. -->
+        <CheckBox Grid.Row="6"
+                  x:Name="AgreementCheck"
+                  Content="Я согласен на обработку персональных данных."
+                  Margin="0,10,0,10"/>
+
+        <!-- Кнопка "Записаться". -->
+        <Button Grid.Row="7"
+                Content="ЗАПИСАТЬСЯ"
+                Height="40"
+                Width="Auto"
+                HorizontalAlignment="Center"
+                Margin="0,10,0,5"
+                Padding="10,0,10,0"
+                VerticalContentAlignment="Center"
+                Click="RegisterButton_Click"/>
+    </Grid>
+</Window>
