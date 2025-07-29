@@ -5,12 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Theme04_Task01"
         mc:Ignorable="d"
-        Title="SwitchButton" Height="400" Width="600">
-        <Grid>
-            <local:ToggleButton x:Name="myToggleButton" 
+        Title="SwitchButton" Height="300" Width="300">
+    <Grid>
+        <local:ToggleButton x:Name="myToggleButton" 
                             HorizontalAlignment="Center" 
                             VerticalAlignment="Center" 
-                            FontSize="20" 
-                            Padding="20"/>
-        </Grid>
+                            FontSize="20"
+                            Height="70"
+                            Width="70"
+                            Padding="10"/>
+    </Grid>
 </Window>

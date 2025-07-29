@@ -13,7 +13,6 @@ namespace Theme04_Task01
 {
     public class ToggleButton : Button
     {
-        // Определяем DependencyProperty IsToggled
         public static readonly DependencyProperty IsToggledProperty =
             DependencyProperty.Register(
                 "IsToggled", // Имя свойства
