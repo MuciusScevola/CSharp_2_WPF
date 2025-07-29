@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="SwitchButton" Height="300" Width="300">
     <Grid>
-        <local:ToggleButton x:Name="myToggleButton" 
+        <local:ToggleButton x:Name="ToggleButton" 
                             HorizontalAlignment="Center" 
                             VerticalAlignment="Center" 
                             FontSize="20"
