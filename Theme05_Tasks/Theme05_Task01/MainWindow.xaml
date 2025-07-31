@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Theme05_Task01"
         mc:Ignorable="d"
         Title="MainWindow" Height="400" Width="400">
-    <Grid>
+    <Grid ShowGridLines="True">
         <Grid.RowDefinitions>
             <RowDefinition/>
             <RowDefinition/>
