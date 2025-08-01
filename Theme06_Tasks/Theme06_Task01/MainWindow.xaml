@@ -1,0 +1,44 @@
+﻿<Window x:Class="Theme06_Task01.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Theme06_Task01"
+        mc:Ignorable="d"
+        Title="Длина текста" Height="240" Width="380">
+    <Window.Resources>
+        <!-- Встроенный конвертер из PresentationFramework -->
+        <BooleanToVisibilityConverter x:Key="BoolToVis"/>
+    </Window.Resources>
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- Поле ввода текста -->
+        <TextBox x:Name="InputText" 
+                 Grid.Row="0" 
+                 Margin="0,0,0,10" 
+                 TextWrapping="Wrap" 
+                 Height="30"
+                 Text="{Binding Text, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+
+        <!-- Флажок для показа деталей -->
+        <CheckBox Grid.Row="1" 
+                  Margin="0,0,0,10" 
+                  Content="Показать детали" 
+                  IsChecked="{Binding ShowDetails, Mode=TwoWay}"/>
+
+        <!-- Блок с деталями (появляется при Checked) -->
+        <StackPanel Grid.Row="2" Visibility="{Binding ShowDetails, Converter={StaticResource BoolToVis}}">
+            <TextBlock Text="{Binding TextLengthText}" Margin="0,0,0,5"/>
+            <ProgressBar Value="{Binding Text.Length}" 
+                         Maximum="100" 
+                         Height="15" 
+                         Margin="0,0,0,5"/>
+        </StackPanel>
+    </Grid>
+</Window>
