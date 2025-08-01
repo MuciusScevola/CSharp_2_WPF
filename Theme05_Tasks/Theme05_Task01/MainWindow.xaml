@@ -5,14 +5,59 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Theme05_Task01"
         mc:Ignorable="d"
-        Title="MainWindow" Height="400" Width="400">
-    <Grid ShowGridLines="True">
+        Title="Панель настроек" Height="300" Width="300">
+    
+    <Window.Resources>
+        <Style x:Key="InteractiveButtonStyle"
+               TargetType="Button"
+               BasedOn="{StaticResource BaseButtonStyle}">
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="{StaticResource HoverColor}"/>
+                </Trigger>
+
+                <MultiTrigger>
+                    <MultiTrigger.Conditions>
+                        <Condition Property="IsMouseOver" Value="True"/>
+                        <Condition Property="IsEnabled" Value="False"/>
+                    </MultiTrigger.Conditions>
+                    <Setter Property="Background" Value="{StaticResource DisabledColor}"/>
+                </MultiTrigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+
+    <Grid ShowGridLines="True" Margin="5">
         <Grid.RowDefinitions>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
+
+        <TextBlock Grid.Row="0"
+                   Text="Настройки приложения"
+                   Style="{StaticResource HeaderTextStyle}"/>
+
+        <StackPanel Grid.Row="1"
+                    Orientation="Vertical"
+                    VerticalAlignment="Center"
+                    Margin="10">
+            <Button Content="Отменить"
+                    Style="{StaticResource InteractiveButtonStyle}"/>
+            <Button Content="Сохранить"
+                    Style="{StaticResource InteractiveButtonStyle}"/>
+        </StackPanel>
+
+        <CheckBox Grid.Row="2"
+                  x:Name="ToggleButton"
+                  Content="Включить режим"
+                  Margin="10"/>
+
+        <Button Grid.Row="3"
+                Content="Специальная кнопка"
+                Style="{StaticResource InteractiveButtonStyle}"
+                IsEnabled="{Binding IsChecked, ElementName=ToggleButton}"
+                Margin="0,10,0,5"/>
     </Grid>
-</Window>
+    </Window>
