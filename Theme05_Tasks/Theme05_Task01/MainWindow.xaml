@@ -16,6 +16,10 @@
                     <Setter Property="Background" Value="{StaticResource HoverColor}"/>
                 </Trigger>
 
+                <Trigger Property="IsPressed" Value="True">
+                    <Setter Property="Background" Value="{StaticResource PressedColor}"/>
+                </Trigger>
+                
                 <MultiTrigger>
                     <MultiTrigger.Conditions>
                         <Condition Property="IsMouseOver" Value="True"/>

@@ -4,10 +4,11 @@
 
     <SolidColorBrush x:Key="PrimaryColor" Color="Blue"/>
     <SolidColorBrush x:Key="HoverColor" Color="LightBlue"/>
-    <SolidColorBrush x:Key="DisabledColor"/>
+    <SolidColorBrush x:Key="PressedColor" Color="GreenYellow"/>
+    <SolidColorBrush x:Key="DisabledColor" Color="Black"/>
 
-    <sys:Double x:Key="ControlHeight">30</sys:Double>
-    <sys:Double x:Key="ControlWidth">120</sys:Double>
+    <sys:Double x:Key="ControlHeight">40</sys:Double>
+    <sys:Double x:Key="ControlWidth">150</sys:Double>
 
     <Style x:Key="BaseButtonStyle">
         <Setter Property="Button.Height" Value="{StaticResource ControlHeight}"/>
