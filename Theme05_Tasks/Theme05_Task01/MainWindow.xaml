@@ -17,7 +17,8 @@
                 </Trigger>
 
                 <Trigger Property="IsPressed" Value="True">
-                    <Setter Property="Background" Value="{StaticResource PressedColor}"/>
+                    <Setter Property="FontWeight" Value="Bold"/>
+                    <Setter Property="Foreground" Value="{StaticResource PressedColor}"/>
                 </Trigger>
                 
                 <MultiTrigger>
@@ -25,7 +26,7 @@
                         <Condition Property="IsMouseOver" Value="True"/>
                         <Condition Property="IsEnabled" Value="False"/>
                     </MultiTrigger.Conditions>
-                    <Setter Property="Background" Value="{StaticResource DisabledColor}"/>
+                    <Setter Property="BorderBrush" Value="{StaticResource DisabledColor}"/>
                 </MultiTrigger>
             </Style.Triggers>
         </Style>
@@ -62,6 +63,7 @@
                 Content="Специальная кнопка"
                 Style="{StaticResource InteractiveButtonStyle}"
                 IsEnabled="{Binding IsChecked, ElementName=ToggleButton}"
+                BorderBrush="{StaticResource DisabledColor}"
                 Margin="0,10,0,5"/>
     </Grid>
     </Window>

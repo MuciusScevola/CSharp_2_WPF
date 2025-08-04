@@ -4,8 +4,8 @@
 
     <SolidColorBrush x:Key="PrimaryColor" Color="Green"/>
     <SolidColorBrush x:Key="HoverColor" Color="HotPink"/>
-    <SolidColorBrush x:Key="PressedColor" Color="GreenYellow"/>
-    <SolidColorBrush x:Key="DisabledColor" Color="Black"/>
+    <SolidColorBrush x:Key="PressedColor" Color="Black"/>
+    <SolidColorBrush x:Key="DisabledColor" Color="Red"/>
 
     <sys:Double x:Key="ControlHeight">40</sys:Double>
     <sys:Double x:Key="ControlWidth">150</sys:Double>
@@ -15,6 +15,7 @@
         <Setter Property="Button.Width" Value="{StaticResource ControlWidth}"/>
         <Setter Property="Button.Background" Value="{DynamicResource PrimaryColor}"/>
         <Setter Property="Button.Foreground" Value="White"/>
+        <Setter Property="Button.FontWeight" Value="Light"/>
         <Setter Property="Button.Margin" Value="5"/>
     </Style>
 
