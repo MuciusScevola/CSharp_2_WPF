@@ -15,18 +15,20 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="10"/>
         </Grid.RowDefinitions>
 
-        <!-- Поле ввода текста -->
-        <TextBox x:Name="InputText" 
-                 Grid.Row="0" 
-                 Margin="0,0,0,10" 
-                 TextWrapping="Wrap" 
-                 Height="30"
-                 Text="{Binding Text, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBox x:Name="InputText"
+                 Grid.Row="0"
+                 Margin="0,0,0,5"
+                 FontSize="14"
+                 Height="24"
+                 VerticalAlignment="Center"
+                 MaxLength="100"
+                 TextWrapping="NoWrap"
+                 Text="{Binding Text, UpdateSourceTrigger=PropertyChanged}"
+                 HorizontalScrollBarVisibility="Auto"/>
 
-        <!-- Флажок для показа деталей -->
         <CheckBox Grid.Row="1" 
                   Margin="0,0,0,10" 
                   Content="Показать детали" 
