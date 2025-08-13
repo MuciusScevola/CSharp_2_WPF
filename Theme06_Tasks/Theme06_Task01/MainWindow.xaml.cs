@@ -1,5 +1,4 @@
 ﻿using System.Windows;
-using TextAnalyzer;
 
 namespace Theme06_Task01
 {
@@ -8,7 +7,6 @@ namespace Theme06_Task01
         public MainWindow()
         {
             InitializeComponent();
-            DataContext = new MainViewModel();
         }
     }
 }
