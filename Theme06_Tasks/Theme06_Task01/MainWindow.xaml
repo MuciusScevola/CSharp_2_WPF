@@ -7,40 +7,36 @@
         mc:Ignorable="d"
         Title="Длина текста" Height="240" Width="380">
     <Window.Resources>
-        <!-- Встроенный конвертер из PresentationFramework -->
         <BooleanToVisibilityConverter x:Key="BoolToVis"/>
     </Window.Resources>
-    <Grid Margin="10">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="10"/>
-        </Grid.RowDefinitions>
 
-        <TextBox x:Name="InputText"
-                 Grid.Row="0"
-                 Margin="0,0,0,5"
-                 FontSize="14"
-                 Height="24"
-                 VerticalAlignment="Center"
-                 MaxLength="100"
-                 TextWrapping="NoWrap"
-                 Text="{Binding Text, UpdateSourceTrigger=PropertyChanged}"
-                 HorizontalScrollBarVisibility="Auto"/>
+    <!--Не уверен был насчет длины самого текста, так что на всякий случай ограничил и его - 150 символами.-->
+    <StackPanel Margin="10">
+        <Grid>
+            <TextBox x:Name="TextInput"
+                     TextWrapping="NoWrap"
+                     VerticalContentAlignment="Top"
+                     HorizontalScrollBarVisibility="Visible"
+                     VerticalScrollBarVisibility="Disabled"
+                     Height="40"
+                     FontSize="14"
+                     Margin="0,0,0,1"
+                     Padding="0,1,0,1"
+                     BorderThickness="1"
+                     MaxLength="150"/>
+        </Grid>
 
-        <CheckBox Grid.Row="1" 
-                  Margin="0,0,0,10" 
-                  Content="Показать детали" 
-                  IsChecked="{Binding ShowDetails, Mode=TwoWay}"/>
+        <CheckBox x:Name="DetailsCheckBox"
+                  Content="Показать детали"
+                  Margin="0,10,0,10"
+                  IsChecked="False"/>
 
-        <!-- Блок с деталями (появляется при Checked) -->
-        <StackPanel Grid.Row="2" Visibility="{Binding ShowDetails, Converter={StaticResource BoolToVis}}">
-            <TextBlock Text="{Binding TextLengthText}" Margin="0,0,0,5"/>
-            <ProgressBar Value="{Binding Text.Length}" 
-                         Maximum="100" 
-                         Height="15" 
-                         Margin="0,0,0,5"/>
+        <StackPanel Visibility="{Binding IsChecked, ElementName=DetailsCheckBox, Converter={StaticResource BoolToVis}}">
+            <TextBlock Text="{Binding Text.Length, ElementName=TextInput, StringFormat='Длина текста: {0}'}"/>
+            <ProgressBar Maximum="100"
+                         Value="{Binding Text.Length, Mode=OneWay, ElementName=TextInput}"
+                         Height="20"
+                         Margin="0,5,0,0"/>
         </StackPanel>
-    </Grid>
+    </StackPanel>
 </Window>
