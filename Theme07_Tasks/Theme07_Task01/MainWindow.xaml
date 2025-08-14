@@ -44,13 +44,13 @@
                                         Property="Opacity"
                                         Value="1"/>
                             </Trigger>
-                            
+
                             <Trigger Property="IsChecked" Value="{x:Null}">
                                 <Setter TargetName="IndeterminateMark"
                                         Property="Opacity"
                                         Value="1"/>
                             </Trigger>
-                            
+
                         </ControlTemplate.Triggers>
                     </ControlTemplate>
                 </Setter.Value>
@@ -67,20 +67,20 @@
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        
-            <CheckBox Grid.Column="0"
+
+        <CheckBox Grid.Column="0"
                       Style="{StaticResource CustomsCheckBoxes}"
                       Content="UnChecked"
                       IsChecked="False"/>
 
-            <CheckBox Grid.Column="1"
+        <CheckBox Grid.Column="1"
+                      Style="{StaticResource CustomsCheckBoxes}"
                       Content="Checked"
-                      IsChecked="True"
-                      Style="{StaticResource CustomsCheckBoxes}"/>
+                      IsChecked="True"/>
 
-            <CheckBox Grid.Column="2"
-                      Content="Indeterminate"
-                      IsChecked="{x:Null}"
-                      Style="{StaticResource CustomsCheckBoxes}"/>
+        <CheckBox Grid.Column="2"
+                  Style="{StaticResource CustomsCheckBoxes}"
+                  Content="Indeterminate"
+                  IsChecked="{x:Null}"/>
     </Grid>
 </Window>
