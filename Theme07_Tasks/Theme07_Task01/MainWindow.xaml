@@ -1,0 +1,86 @@
+﻿<Window x:Class="Theme07_Task01.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Theme07_Task01"
+        mc:Ignorable="d"
+        Title="CustomCheckBoxes" Height="150" Width="350" FontSize="12">
+    <Window.Resources>
+        <Style TargetType="CheckBox"
+               x:Key="CustomsCheckBoxes">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="CheckBox">
+                        <StackPanel Orientation="Vertical">
+                            <Grid Height="15"
+                                  Width="15"
+                                  Margin="0,0,5,0">
+                                <Rectangle x:Name="Border"
+                                       Fill="White"
+                                       Stroke="Gray"
+                                       RadiusX="5"
+                                       RadiusY="5"/>
+                                <TextBlock x:Name="CheckedMarked"
+                                           Text="×"
+                                           Padding="0,0,0,3"
+                                           HorizontalAlignment="Center"
+                                           VerticalAlignment="Center"
+                                           Opacity="0"/>
+                                <Ellipse x:Name="IndeterminateMark"
+                                         Height="8"
+                                         Width="8"
+                                         Fill="Black"
+                                         Opacity="0"/>
+                            </Grid>
+
+                            <ContentPresenter VerticalAlignment="Center"
+                                              HorizontalAlignment="Center"/>
+                        </StackPanel>
+
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsChecked" Value="True">
+                                <Setter TargetName="CheckedMarked"
+                                        Property="Opacity"
+                                        Value="1"/>
+                            </Trigger>
+
+                            <Trigger Property="IsChecked" Value="{x:Null}">
+                                <Setter TargetName="IndeterminateMark"
+                                        Property="Opacity"
+                                        Value="1"/>
+                            </Trigger>
+
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+    <Grid Margin="5">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <CheckBox Grid.Column="0"
+                      Style="{StaticResource CustomsCheckBoxes}"
+                      Content="UnChecked"
+                      IsChecked="False"/>
+
+        <CheckBox Grid.Column="1"
+                      Style="{StaticResource CustomsCheckBoxes}"
+                      Content="Checked"
+                      IsChecked="True"/>
+
+        <CheckBox Grid.Column="2"
+                  Style="{StaticResource CustomsCheckBoxes}"
+                  Content="Indeterminate"
+                  IsChecked="{x:Null}"/>
+    </Grid>
+</Window>
