@@ -1,15 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Theme08_Task01
+﻿namespace Theme08_Task01
 {
     public enum ProductCategory
     {
         Food,
-        Technics
+        Appliances
     }
 
     public class Product
@@ -17,6 +11,7 @@ namespace Theme08_Task01
         public string? Name { get; set; }
         public decimal Price { get; set; }
         public ProductCategory Category { get; set; }
-        public string? ImagePath { get; set; }
+        public string? Image { get; set; }
+        public string? Title { get; set; }
     }
 }

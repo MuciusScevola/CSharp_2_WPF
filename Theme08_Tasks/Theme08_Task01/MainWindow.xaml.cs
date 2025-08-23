@@ -1,60 +1,48 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Globalization;
+﻿using System.Collections.Generic;
 using System.Windows;
-using System.Windows.Data;
 
-namespace ProductList
+namespace Theme08_Task01
 {
-    public enum ProductCategory
-    {
-        Food,
-        Appliance
-    }
-
-    public class Product
-    {
-        public string Name { get; set; }
-        public decimal Price { get; set; }
-        public string ImagePath { get; set; }
-        public ProductCategory Category { get; set; }
-    }
-
-    public class CategoryConverter : IValueConverter
-    {
-        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
-        {
-            if (value is ProductCategory category)
-            {
-                return category == ProductCategory.Appliance ? "Appliance" : "Food";
-            }
-            return "Food";
-        }
-
-        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
-        {
-            throw new NotImplementedException();
-        }
-    }
-
     public partial class MainWindow : Window
     {
-        public List<Product> Products { get; set; }
-
         public MainWindow()
         {
             InitializeComponent();
 
-            // Пример данных
-            Products = new List<Product>
+            // Создаем список товаров
+            List<Product> products = new List<Product>
             {
-                new Product { Name = "Яблоки", Price = 299.99m, ImagePath = "apple.jpg", Category = ProductCategory.Food },
-                new Product { Name = "Холодильник", Price = 59999.99m, ImagePath = "fridge.jpg", Category = ProductCategory.Appliance },
-                new Product { Name = "Бананы", Price = 199.49m, ImagePath = "banana.jpg", Category = ProductCategory.Food }
+                new Product
+                {
+                    Name = "Апельсины",
+                    Price = 299.99M,
+                    Category = ProductCategory.Food, 
+                    Image = "/Images/orange.png"
+                },
+                new Product
+                {
+                    Name = "Стиральная машина",
+                    Price = 59999.99M,
+                    Category = ProductCategory.Appliances,
+                    Image = "/Images/washing_machine.png"
+                },
+                new Product
+                {
+                    Name = "Виноград",
+                    Price = 199.49M,
+                    Category = ProductCategory.Food,
+                    Image = "/Images/grapes.png"
+                },
+                new Product
+                {
+                    Name = "Кофе-машина",
+                    Price = 199.49M,
+                    Category = ProductCategory.Appliances,
+                    Image = "/Images/coffee_machine.png"
+                }
             };
 
-            DataContext = this;
+            ProductsListBox.ItemsSource = products;
         }
     }
 }
