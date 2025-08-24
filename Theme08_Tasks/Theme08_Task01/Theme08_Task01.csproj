@@ -1,0 +1,27 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net9.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Images\coffee_machine.png" />
+    <None Remove="Images\grapes.png" />
+    <None Remove="Images\orange.png" />
+    <None Remove="Images\washing_machine.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Images\coffee_machine.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\grapes.png" />
+    <Resource Include="Images\orange.png" />
+    <Resource Include="Images\washing_machine.png" />
+  </ItemGroup>
+
+</Project>
