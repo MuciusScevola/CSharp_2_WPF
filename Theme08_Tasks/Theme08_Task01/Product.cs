@@ -12,6 +12,5 @@
         public decimal Price { get; set; }
         public ProductCategory Category { get; set; }
         public string? Image { get; set; }
-        public string? Title { get; set; }
     }
 }

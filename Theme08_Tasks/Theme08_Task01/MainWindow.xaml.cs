@@ -9,7 +9,6 @@ namespace Theme08_Task01
         {
             InitializeComponent();
 
-            // Создаем список товаров
             List<Product> products = new List<Product>
             {
                 new Product
