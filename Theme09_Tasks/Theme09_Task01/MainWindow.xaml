@@ -5,11 +5,42 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Theme09_Task01"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Window.CommandBindings>
-        
-    </Window.CommandBindings>
-    <Grid>
+        Title="Color Viewer" Height="450" Width="800">
 
-    </Grid>
+    <Window.CommandBindings>
+        <CommandBinding Command="{x:Static local:CustomCommands.ChangeColor}"
+                        Executed="ChangeColorExecuted"/>
+        <CommandBinding Command="ApplicationCommands.Undo"
+                        Executed="UndoExecuted"
+                        CanExecute="UndoCanExecute"/>
+    </Window.CommandBindings>
+
+    <DockPanel x:Name="Dock">
+        <Menu DockPanel.Dock="Top" Height="25">
+            <MenuItem Header="Действия"
+                      Margin="2"
+                      Padding="2">
+                <MenuItem Header="Изменить цвет"
+                          Command="{x:Static local:CustomCommands.ChangeColor}"
+                          InputGestureText="Ctrl+C"/>
+                <MenuItem Header="Отменить"
+                          Command="ApplicationCommands.Undo"
+                          InputGestureText="Ctrl+Z"/>
+            </MenuItem>
+        </Menu>
+
+        <StackPanel HorizontalAlignment="Center"
+                   VerticalAlignment="Center">
+            <Button Content="Изменить цвет"
+                    Command="{x:Static local:CustomCommands.ChangeColor}"
+                    Height="40"
+                    Width="160"
+                    Margin="5"/>
+            <Button Content="Отменить"
+                    Command="ApplicationCommands.Undo"
+                    Height="40"
+                    Width="160"
+                    Margin="5"/>
+        </StackPanel>
+    </DockPanel>
 </Window>
