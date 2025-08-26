@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -9,12 +10,12 @@ namespace Theme09_Task01
 {
     public partial class MainWindow : Window
     {
-        // Коллекция для хранения последовательности цветов
+        // Коллекция для хранения последовательности цветов.
         private Stack<Brush> _colorHistory = new Stack<Brush>();
 
-        private Brush _currentColor;
+        private Brush _currentColor = new SolidColorBrush(Colors.White);
 
-        // Текущий цвет
+        // Текущий цвет.
         public Brush CurrentColor
         {
             get => _currentColor;
@@ -22,28 +23,35 @@ namespace Theme09_Task01
             {
                 _currentColor = value;
 
-                // Добавляем новый цвет в стек, если предыдущий цвет не такой же
-                // (либо стек пустой) 
                 if (_colorHistory.Count == 0 || _colorHistory.Peek() != value)
                 {
                     _colorHistory.Push(value);
                 }
-                // Dock - это имя (x:Name) контейнера компоновки, для которого меняем цвет
                 Dock.Background = _currentColor;
+
+                // Для отладки - просмотр истории.
+                Debug.WriteLine("История цветов:");
+                var historyList = new List<Brush>(_colorHistory);
+                historyList.Reverse();
+
+                Debug.WriteLine($"  Начальный цвет: {historyList[0]}");
+                for (int i = 1; i < historyList.Count; i++)
+                {
+                    Debug.WriteLine($"  Нажатие {i}: {historyList[i]}");
+                }
             }
         }
 
         public MainWindow()
         {
             InitializeComponent();
-            // Устанавливаем начальный цвет
+            // Установка начального цвета.
             CurrentColor = new SolidColorBrush(Colors.White);
         }
 
         private void ChangeColorExecuted(object sender, ExecutedRoutedEventArgs e)
         {
             var random = new Random();
-            // CurrentColor - это свойство для хранения текущего цвета
             CurrentColor = new SolidColorBrush(Color.FromRgb(
                 (byte)random.Next(256),
                 (byte)random.Next(256),
@@ -54,8 +62,8 @@ namespace Theme09_Task01
         {
             if (_colorHistory.Count > 1)
             {
-                _colorHistory.Pop(); // Удаляем текущий цвет
-                CurrentColor = _colorHistory.Peek(); // Берём предыдущий (не Pop, чтобы не удалять)
+                _colorHistory.Pop();
+                CurrentColor = _colorHistory.Peek(); // Берёться предыдущий (не Pop, чтобы не удалять).
             }
         }
 
