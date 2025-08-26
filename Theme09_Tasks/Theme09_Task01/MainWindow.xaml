@@ -15,17 +15,17 @@
                         CanExecute="UndoCanExecute"/>
     </Window.CommandBindings>
 
+    <!-- Сочетание клавиш, как я понял, можно не указывать: для ChangeColor уже определено в своем классе,
+    а для Undo - по умолчанию отображается стандартное. -->
     <DockPanel x:Name="Dock">
         <Menu DockPanel.Dock="Top" Height="25">
             <MenuItem Header="Действия"
                       Margin="2"
                       Padding="2">
                 <MenuItem Header="Изменить цвет"
-                          Command="{x:Static local:CustomCommands.ChangeColor}"
-                          InputGestureText="Ctrl+C"/>
-                <MenuItem Header="Отменить"
-                          Command="ApplicationCommands.Undo"
-                          InputGestureText="Ctrl+Z"/>
+                          Command="{x:Static local:CustomCommands.ChangeColor}"/>
+                    <MenuItem Header="Отменить"
+                              Command="ApplicationCommands.Undo"/>
             </MenuItem>
         </Menu>
 

@@ -61,7 +61,6 @@ namespace Theme09_Task01
 
         private void UndoCanExecute(object sender, CanExecuteRoutedEventArgs e)
         {
-            // Доступна, когда есть что отменять, т.е. _colorHistory не пуст и больше 1 элемента
             e.CanExecute = _colorHistory.Count > 1;
         }
     }
