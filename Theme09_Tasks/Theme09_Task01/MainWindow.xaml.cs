@@ -63,7 +63,7 @@ namespace Theme09_Task01
             if (_colorHistory.Count > 1)
             {
                 _colorHistory.Pop();
-                CurrentColor = _colorHistory.Peek(); // Берёться предыдущий (не Pop, чтобы не удалять).
+                CurrentColor = _colorHistory.Peek(); // Берётся предыдущий (не Pop, чтобы не удалять).
             }
         }
 
