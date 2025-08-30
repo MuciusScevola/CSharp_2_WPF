@@ -5,9 +5,9 @@ namespace Theme10_Task01.ViewModels
 {
     public interface IRelayCommand : ICommand
     {
-        void Execute(object parameter);
-        bool CanExecute(object parameter);
+        new void Execute(object parameter);
+        new bool CanExecute(object parameter);
 
-        event EventHandler CanExecuteChanged;
+        new event EventHandler CanExecuteChanged;
     }
 }

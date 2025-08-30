@@ -12,12 +12,12 @@ namespace Theme10_Task01.ViewModels
 {
         public class LoginViewModel : INotifyPropertyChanged
         {
-            private string _username;
-            private string _password;
-            private string _statusMessage;
+            private string? _username;
+            private string? _password;
+            private string? _statusMessage;
             private bool _isSuccess;
 
-            public string Username
+            public string? Username
             {
                 get => _username;
                 set
@@ -28,7 +28,7 @@ namespace Theme10_Task01.ViewModels
                 }
             }
 
-            public string Password
+            public string? Password
             {
                 get => _password;
                 set
@@ -39,7 +39,7 @@ namespace Theme10_Task01.ViewModels
                 }
             }
 
-            public string StatusMessage
+            public string? StatusMessage
             {
                 get => _statusMessage;
                 set
@@ -59,7 +59,7 @@ namespace Theme10_Task01.ViewModels
                 }
             }
 
-            public ICommand LoginCommand { get; }
+            public RelayCommand LoginCommand { get; }
 
             public LoginViewModel()
             {
@@ -68,12 +68,12 @@ namespace Theme10_Task01.ViewModels
                 IsSuccess = false;
             }
 
-            private bool CanLogin(object obj) =>
+            private bool CanLogin(object? obj) =>
                 !string.IsNullOrWhiteSpace(Username) && !string.IsNullOrWhiteSpace(Password);
 
-            private void OnLogin(object obj)
+            private void OnLogin(object? obj)
             {
-                var isAuthenticated = AuthModel.Authenticate(Username, Password);
+                var isAuthenticated = AuthModel.Authenticate(Username ?? "", Password ?? "");
 
                 if (isAuthenticated)
                 {
@@ -86,12 +86,11 @@ namespace Theme10_Task01.ViewModels
                     IsSuccess = false;
                 }
 
-            LoginCommand.RaiseCanExecutedChanged();
             }
 
-            public event PropertyChangedEventHandler PropertyChanged;
+            public event PropertyChangedEventHandler? PropertyChanged;
 
-            protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+            protected virtual void OnPropertyChanged([CallerMemberName] string? propertyName = null)
             {
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
             }

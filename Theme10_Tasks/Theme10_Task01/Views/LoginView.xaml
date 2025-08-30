@@ -4,9 +4,9 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Theme10_Task01.Views"
-        xmlns:conv="clr-namespace:Theme10_Task01.Converters"
+        xmlns:conv="clr-namespace:Theme10_Task01.Models"
         mc:Ignorable="d"
-        Title="Система входа" Height="250" Width="300">
+        Title="Система входа" Height="270" Width="320">
     <Window.Resources>
         <conv:BoolToBrushConverter x:Key="BrushConverter"/>
     </Window.Resources>
@@ -18,25 +18,29 @@
             <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
                 <TextBlock Text="Логин:" Width="60" VerticalAlignment="Center"/>
                 <TextBox Text="{Binding Username, UpdateSourceTrigger=PropertyChanged}"
-                         Width="210" Margin="5,0,0,0"/>
+                         Width="200" Margin="5,0,5,0"/>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
                 <TextBlock Text="Пароль:" Width="60" VerticalAlignment="Center"/>
                 <TextBox Text="{Binding Password, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
-                         Width="210"
-                         Margin="5,0,0,0"/>
+                         Width="200"
+                         Margin="5,0,5,0"/>
             </StackPanel>
 
             <Button Content="Войти" 
                     Command="{Binding LoginCommand}" 
                     Margin="0,10,0,10"
+                    Height="30"
                     Width="100"
                     HorizontalAlignment="Center"/>
 
-            <Border BorderThickness="2" BorderBrush="Black" CornerRadius="5" Margin="0,10,0,0">
+            <Border Background="{Binding IsSuccess, Converter={StaticResource BrushConverter}}"
+                    BorderThickness="2"
+                    BorderBrush="Black"
+                    CornerRadius="5"
+                    Margin="0,10,0,0">
                 <TextBlock Text="{Binding StatusMessage}"
-                           Background="{Binding IsSuccess, Converter={StaticResource BrushConverter}}"
                            Foreground="White"
                            Padding="10"
                            TextWrapping="Wrap"
