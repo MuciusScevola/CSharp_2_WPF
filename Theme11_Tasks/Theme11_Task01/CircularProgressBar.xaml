@@ -10,19 +10,12 @@
         <Grid Width="100" Height="100">
             <Ellipse Stroke="LightGray" StrokeThickness="5" Fill="Transparent"/>
 
-            <Path Stroke="Blue" StrokeThickness="5" StrokeStartLineCap="Round" StrokeEndLineCap="Round"
-                  RenderTransformOrigin="0.5,0.5">
-                <Path.Data>
-                    <PathGeometry>
-                        <PathFigure StartPoint="50,95">
-                            <ArcSegment Point="50,5" Size="45,45" SweepDirection="Clockwise"/>
-                        </PathFigure>
-                    </PathGeometry>
-                </Path.Data>
-                <Path.RenderTransform>
-                    <RotateTransform Angle="{Binding ProgressAngle, RelativeSource={RelativeSource AncestorType=local:CircularProgressBar}}"/>
-                </Path.RenderTransform>
-            </Path>
+            <Path x:Name="ProgressPath"
+                  Stroke="Blue"
+                  StrokeThickness="5"
+                  StrokeStartLineCap="Round"
+                  StrokeEndLineCap="Round"
+                  Fill="Transparent"/>
 
             <TextBlock Text="{Binding PercentageText, RelativeSource={RelativeSource AncestorType=local:CircularProgressBar}}"
                        HorizontalAlignment="Center"

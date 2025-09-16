@@ -5,23 +5,23 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Theme11_Task01"
         mc:Ignorable="d"
-        Title="MainWindow" Height="250" Width="200">
+        Title="MainWindow" Height="250" Width="250">
     <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-        <!-- Прогресс-бар -->
         <local:CircularProgressBar x:Name="ProgressBar"
                                    Value="{Binding ElementName=Slider, Path=Value}"
                                    Maximum="100"
                                    Height="100"
                                    Width="100"
-                                   Margin="20"/>
+                                   Margin="10"/>
         
-        <!-- Слайдер для управления -->
         <Slider x:Name="Slider"
-                Minimum="0" Maximum="100"
-                Value="50"
-                Width="200" Margin="10"/>
+                Minimum="0"
+                Maximum="100"
+                Value="0"
+                Width="200"
+                Margin="10"/>
 
-        <TextBlock Text="{Binding ElementName=ProgressBar, Path=Value, StringFormat={}Текущее значение: {0:N2}}"
+        <TextBlock Text="{Binding ElementName=ProgressBar, Path=Value, StringFormat={}Текущее значение: {0:F1}}"
                    HorizontalAlignment="Center"
                    Margin="10"/>
     </StackPanel>
