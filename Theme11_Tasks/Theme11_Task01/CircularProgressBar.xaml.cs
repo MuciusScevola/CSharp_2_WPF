@@ -104,7 +104,6 @@ namespace Theme11_Task01
             var pathGeometry = new PathGeometry();
             var pathFigure = new PathFigure();
 
-            // Центр окружности (50, 50) для размера 100x100, радиус = 45.
             double centerX = 50;
             double centerY = 50;
             double radius = 45;
